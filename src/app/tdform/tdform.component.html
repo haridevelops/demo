@@ -1,0 +1,63 @@
+    
+
+		<form (ngSubmit)="onSubmit()" #bean="ngForm">
+			<div class="form-group">
+				<label>Email</label>
+				<input
+					type="email"
+					class="form-control"
+					#emailid="ngModel"
+					ngModel
+					name="email"
+					required><small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+					<span 
+						class="help-block"
+						style="color: red"
+						*ngIf="emailid.touched && !emailid.valid">Hey! Your Email id is not correct</span>
+			</div>
+			<div class="form-group">
+				<label>Subscriptions</label>
+				<select 
+					class="form-control"
+					[ngModel]="defaultValue"
+					name="subs">
+					<option value="Basic">Basic</option>
+					<option value="Advanced">Advanced</option>
+					<option value="Pro">Pro</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label>Password</label>
+				<input
+					type="password"
+					class="form-control"
+					ngModel
+					name="password"
+					required
+					#password="ngModel">
+					<span 
+						class="help-block"
+						*ngIf="password.touched && !password.dirty && !password.valid">Please provide the password!</span>
+			</div>
+			<div class="form-group">
+				<button 
+					class="btn btn-info"
+					>Submit</button>
+					<button 
+					class="btn btn-info"
+					(click)="storeData()"
+					>store Data</button>
+			</div>
+		</form>
+
+	<div 
+		class="row"
+		*ngIf="ifShow">
+		<div class="col-md-8 col-md-offset-2">
+			Values entered are:
+			<p>Email id entered: {{ appModal.email }}</p>
+			<p>Subs selected: {{ appModal.dropSelected }}</p>
+			<p>Password entered: {{ appModal.password }}</p>
+		</div>
+	
+	</div>

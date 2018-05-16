@@ -1,0 +1,15 @@
+.panel-login {
+    border-color: #ccc;
+    background-color: transparent;
+     
+    -webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+}
+.panel-login>.panel-heading {
+    text-align:center;
+}
+.col-centered {
+	float: none;
+	margin: 0 auto;
+}

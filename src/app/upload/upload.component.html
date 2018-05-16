@@ -1,0 +1,69 @@
+<div class="row">
+			<div *ngIf="currentFileUpload" class="progress" style="width:400px">
+				<div 
+					class="progress-bar progress-bar-info progress-bar-striped"
+					role="progressbar" 
+					attr.aria-valuenow="{{progress.percentage}}"
+					aria-valuemin="0" 
+					aria-valuemax="100"
+					[ngStyle]="{width:progress.percentage+'%'}">{{progress.percentage}}%</div>
+			</div>
+			<!--  <p-progressBar [value]="value"></p-progressBar>-->
+			<div class="panel panel-login center col-centered image-responsive">
+			<div class="panel-heading">
+            	<strong>Upload File to Firebase</strong>
+			</div>
+			<div class="panel-body">
+            			<div class="row">
+              				<div class="col-lg-6">	
+			<form (ngSubmit)="onSubmit()" #imageForm="ngForm">
+				<div class="form-input">
+    					<label for="float-input">Caption</label>
+    					<input 
+    						id="float-input" 
+    						type="text" 
+    						size="30" 
+    						pInputText
+    						ngModel
+    						name="Caption"
+    						class="form-control"
+    						#ok>
+				</div>
+				<div class="form-input">
+					<label for="name">Your Name</label>
+					<input
+						type="text"
+						class="form-control"
+						ngModel
+						name="name"
+						id="name">
+				</div>
+				<div class="form-input">
+					<!--  <img 
+					[src]="defaultImage"
+					style="width: 250px;height: 250px"> -->
+					<input 
+						style="display: none"
+						type="file" 
+						accept="image/*" 
+						ngModel
+						name="fileInput"
+						#fileInput
+						(change)="onfileChanges($event)"/>
+						<br>
+					<button
+						class="btn btn-large btn-primary"
+						type="button"
+						(click)="fileInput.click()"><strong>Pick a File </strong></button>
+					<button
+						class="btn btn-large btn-primary"><strong>Upload</strong> <span class="glyphicon glyphicon-upload"></span></button>
+					<button
+						class="btn btn-large btn-primary" 
+						type="button"
+						(click)="onGetAllData()"><strong>Download</strong> <span class="glyphicon glyphicon-download"></span></button>
+				</div>
+				
+			</form>
+			</div></div></div>
+		</div>	
+		</div>

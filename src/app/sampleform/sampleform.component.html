@@ -1,0 +1,62 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<form (ngSubmit)="onSubmit()" #bean="ngForm">
+				<div class="form-group">
+					<label>Name</label>
+					<input 
+						type="text"
+						class="form-control"
+						ngModel
+						name="nameInput">
+				</div>
+				<button 
+					class="btn btn-info"
+					type="button"
+					(click)="suggestName()">Suggest an Username</button>
+				<div class="form-group">
+					<label>email</label>
+					<input
+						type="email"
+						class="form-control"
+						ngModel
+						#email="ngModel"
+						name="emailInput"
+						required
+						email>
+				</div>
+				<span 
+					class="help-block"
+					*ngIf="!email.valid && email.touched">
+					Hey! Why don't you fill up your email id?</span>
+				<div class="form-group">
+					<label>phone number</label>
+					<input
+						type="text"
+						class="form-control"
+						ngModel
+						maxlength="10"
+						name="numberInput">
+				</div>
+				<div class="form-group" *ngFor="let gender of genders">
+					<label>
+						<input
+							
+							type="radio"
+							name="gender"
+							ngModel
+							[value]="gender">
+						{{ gender }}
+					</label>
+				</div>
+				<button 
+					class="btn btn-primary" 
+					type="submit"
+					[disabled]="!bean.valid"
+					data-toggle="tooltip"
+					title="Please fill the required fields!"
+					data-delay="500">Submit</button>
+			</form>
+		</div>
+	</div>
+</div>

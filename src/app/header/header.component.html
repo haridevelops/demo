@@ -1,0 +1,23 @@
+<div class="navbar navbar-inverse">
+    <div class="container-fluid"></div>
+    <div class="navbar-header">
+      <a routerLink=""><strong class="navbar-brand">Lets Party</strong></a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a routerLink="sampleForm">sampleForm</a></li>
+        <li><a routerLink="TDForm">TDForm</a></li>
+        <li><a routerLink="uploadFile">Upload File</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+      <ng-template [ngIf]="!authService.isAuthenticated()">
+      	<li><a routerLink="signup">Register</a></li>
+      	<li><a routerLink="signin">Sign in</a></li>
+      </ng-template>
+      <li><a
+          style="cursor: pointer;"
+          (click)="onLogout()"
+          *ngIf="authService.isAuthenticated()">Logout</a></li>
+      </ul>
+     </div>
+</div>
